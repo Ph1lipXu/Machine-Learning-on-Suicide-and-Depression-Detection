@@ -4,7 +4,11 @@ from openai import OpenAI
 from openai import Client
 
 client = OpenAI(
+<<<<<<< HEAD
     api_key="YOUR_API_KEY"
+=======
+    api_key="YOUR-API-KEY"
+>>>>>>> 8d61bd5 (.)
 )
 
 # Format Text
