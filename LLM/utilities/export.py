@@ -7,7 +7,7 @@ def saveToCSV(data, response, rows, outputDirectory):
 
     Parameters:
     - data: Original data (list of lists or tuples).
-    - LLM_response: List of labels classified by LLM (e.g., ["suicide", "depression", "teenager"]).
+    - response: List of labels classified by LLM (e.g., ["suicide", "depression", "teenager"]).
     - rows: Number of rows to process
     - confidence: Confidence level of how confidence the LLM make this decision
     - outputDirectory: Directory where the CSV file will be saved.
@@ -22,8 +22,8 @@ def saveToCSV(data, response, rows, outputDirectory):
     # Append Suitability, Confidence, and Keyword to Each Row
     for i in range(rows):
         try:
-            llm_label = LLM_response[i][0] if i < len(LLM_response) else "N/A"
-            confidence = LLM_response[i][1] if i < len(LLM_response) else "N/A"
+            llm_label = response[i][0] if i < len(response) else "N/A"
+            confidence = response[i][1] if i < len(response) else "N/A"
 
             newRow = [
                 data[i][0],  # Index

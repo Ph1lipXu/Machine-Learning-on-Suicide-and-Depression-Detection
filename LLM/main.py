@@ -37,11 +37,13 @@ if(GPT):
     for i in range(0, NUM):
         try:
             # Ask GPT and Parse Response
-            response = askGPT(data[i][1])
-            parsedResponse = response.split("\n")
+            print(data[i][1])
+            gpt_response = askGPT(data[i][1]) or "Error\n0.0"
+            parsedResponse = gpt_response.split("\n")
+
 
             # Safely Extract Suitability, Confidence, and Keyword
-            if len(parsedResponse) >= 3:
+            if len(parsedResponse) >= 2:
                 LLM_response = parsedResponse[0].strip()  # Extract the first part ('suicide'/'depression'/'teenager')
                 confidence = parsedResponse[1].strip()   # Extract the second part (0-1 confidence score)
                 print(f"Processed Abstract {i+1}: llm_response ={LLM_response}, Confidence={confidence}")

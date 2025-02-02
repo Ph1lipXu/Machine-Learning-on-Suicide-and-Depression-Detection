@@ -7,7 +7,7 @@ def getData(filename):
         df = pd.read_csv(filename)
 
         # Check if required columns exist
-        required_columns = {'index', 'text', 'class'}
+        required_columns = {'text', 'class'}
         missing_columns = required_columns - set(df.columns)
         if missing_columns:
             print(f"❌ Missing columns in CSV: {missing_columns}")
